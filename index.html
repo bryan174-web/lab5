@@ -1,4 +1,5 @@
 
+
  <!DOCTYPE html>
 <html lang="en">
 
@@ -9,15 +10,18 @@ Date: 3/18/2026
 
 <head>
   <title>Title of the document</title>
+   <link rel="stylesheet" type="text/css" href="css/styles.css">
   </head>
 <body>
+<h2>example using the srcset and sizes attributes to create a responsive image. </h2>
 <!--The srcset attribute-->
 <img src="png/flathousedesign.png"
      alt="flathouse"
      srcset="png/flathousedesign.png 500w,
              png/flathousedesign.png 800w,
              png/flathousedesign.png 1000w,
-             png/flathousedesign.png 1400w">
+             png/flathousedesign.png 1400w"
+   sizes="100vw">
 <!--sizes attribute-->
 <img src="images/surfboardcover.jpg"
      alt="book cover"
@@ -26,12 +30,60 @@ Date: 3/18/2026
              images/surfboardcover.jpg 800w,
              images/surfboardcover.jpg 1000w,
              images/surfboardcover.jpg 1400w">
- <!--picture element-->
+ <!--media queries-->
  <picture>
+  <source media="(min-width: 1000px)" srcset="images/yelling.jpg">
+  <source media="(min-width: 500px)"  srcset="images/yelling.jpg">
+  <img src="images/yelling.jpg" alt="yelling" width="400">
     
  </picture>            
-     
+<!--more srcset practice-->
+<img
+  src="images/patternproject.jpg"
+  sizes="(max-width: 500px) 100vw, (max-width: 900px) 50vw, 800px"
+  srcset="images/patternproject.jpg 320w, images/patternproject.jpg 800w, images/patternproject.jpg 1200w "
+    alt="Image description" >
+
+<h2> Using object-fit: cover</h2>
+<div class="image-container">
+  <img src="images/hermesclock.jpg" alt="clock" width="400">
+</div>
+
+ <h3>Small Scale (50px)(SVG)</h3>
+ <!-- <svg class="small-icon" viewBox="0 0 100 100"
+ xmlns="png/yelling">
+<img src="png/flathousedesign.png" alt="">
+</svg> -->
+<svg class="small-icon" viewBox="0 0 100 100"
+     xmlns="http://www.w3.org/2000/svg">
+  <image href="png/flathousedesign.png" width="100" height="100"/>
+</svg>
+
+<!-- Large version -->
+<svg class="large-hero" viewBox="0 0 100 100"
+     xmlns="http://www.w3.org/2000/svg">
+  <image href="png/flathousedesign.png" width="100" height="100"/>
+</svg>
+
+
+
+
+<h2>Image art direction</h2>
+<picture>
+  <!-- For small screens (mobile) -->
+  <source srcset="images/yelling.jpg" media="(max-width: 600px)">
+
+  <!-- For medium screens (tablet) -->
+  <source srcset="images/hermesclock.jpg" media="(max-width: 1024px)">
+
+  <!-- Default image (desktop) -->
+  <img src="images/surfboardcover.jpg" alt="Face image" style="width:100%;">
+</picture>
             
+
+<div class="responsive-background">
+  <h1>Responsive Background</h1>
+</div>
         
 The content of the document you see in the browser goes here.....
 </body>
